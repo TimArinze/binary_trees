@@ -14,7 +14,7 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 	parent = node->parent;
 	granny = parent->parent;
 
-	if (parent == NULL)
+	if (!(node->parent))
 		return (NULL);
 	if (granny == NULL)
 		return (NULL);
