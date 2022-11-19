@@ -11,10 +11,12 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 
 	if (node == NULL)
 		return (NULL);
+	if (binary_tree_is_root(node) == 1)
+		return (NULL);
 	parent = node->parent;
 	granny = parent->parent;
 
-	if (!(node->parent))
+	if (parent == NULL)
 		return (NULL);
 	if (granny == NULL)
 		return (NULL);
@@ -34,4 +36,19 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 	}
 	else
 		return (NULL);
+}
+/**
+ * binary_tree_is_root - A function that checks if a given node is a root
+ * @node: A pointer to the node to check
+ * Return: 1 if node is a root, otherwise 0
+ * if node is NULl, return 0
+ */
+int binary_tree_is_root(const binary_tree_t *node)
+{
+	if (node == NULL)
+		return (0);
+	if (node->parent == NULL)
+		return (1);
+	else
+		return (0);
 }
