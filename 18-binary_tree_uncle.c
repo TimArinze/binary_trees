@@ -19,9 +19,19 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node)
 	if (granny == NULL)
 		return (NULL);
 	if (granny->left == parent)
-		return (granny->right);
+	{
+		if (granny->right)
+			return (granny->right);
+		else
+			return (NULL);
+	}
 	else if (granny->right == parent)
-		return (granny->left);
+	{
+		if (granny->left)
+			return (granny->left);
+		else
+			return (NULL);
+	}
 	else
 		return (NULL);
 }
